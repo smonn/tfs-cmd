@@ -55,10 +55,10 @@ var cli = commandLineArgs([
 var options = cli.parse();
 
 if (options.help) {
-  process.stdout.write(cli.getUsage({
+  console.log(cli.getUsage({
     title: "TFS command line",
     description: "Wrapper for TFS for use in npm scripts.",
-    footer: "Website: [underline]{https://github.com/smonn/tfs-cli}\n\n  Examples:\n\n    tfs-cli checkout file.txt\n    tfs-cli status .\n"
+    footer: "Website: [underline]{https://github.com/smonn/tfs-cli}\n\n  Examples:\n\n    tfs-cli checkout file.txt\n    tfs-cli status ."
   }));
 } else if (options.list) {
   process.stdout.write(listPaths());
