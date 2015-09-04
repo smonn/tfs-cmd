@@ -58,7 +58,7 @@ if (options.help) {
   console.log(cli.getUsage({
     title: "TFS command line",
     description: "Wrapper for TFS for use in npm scripts.",
-    footer: "Website: [underline]{https://github.com/smonn/tfs-cli}\n\n  Examples:\n\n    tfs-cli checkout file.txt\n    tfs-cli status ."
+    footer: "Website: [underline]{https://github.com/smonn/tfs-cmd}\n\n  Examples:\n\n    tfs-cmd checkout file.txt\n    tfs-cmd status ."
   }));
 } else if (options.list) {
   process.stdout.write(listPaths());
