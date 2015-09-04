@@ -1,6 +1,6 @@
 {
   "name": "tfs-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TFS wrapper for node.js (Windows only)",
   "main": "tfs.js",
   "bin": {
