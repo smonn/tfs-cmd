@@ -1,6 +1,6 @@
 {
   "name": "tfs-cmd",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "TFS wrapper for node.js (Windows only)",
   "main": "tfs.js",
   "bin": {
