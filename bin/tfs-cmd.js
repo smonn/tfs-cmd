@@ -9,8 +9,7 @@ function listPaths() {
   var out = "\n";
   for (version in tfs.paths) {
     if (tfs.paths.hasOwnProperty(version)) {
-      out += version + ".x86_32 : " + tfs.paths[version]["x86_32"] + "\n";
-      out += version + ".x86_64 : " + tfs.paths[version]["x86_64"] + "\n\n";
+      out += version + " : " + tfs.paths[version] + "\n\n";
     }
   }
   return out;
@@ -41,18 +40,23 @@ function VsPath(path) {
 }
 
 VsPath.isPredefinedPath = function (path) {
-  return (/^vs20[0-9]{2}\.x86_(32|64)$/).test(path);
+  return (/^vs20[0-9]{2}$/).test(path);
 };
 
 var cli = commandLineArgs([
   { name: "args", alias: "a", type: String, multiple: true, defaultOption: true, description: "The arguments to pass on to TF.exe" },
-  { name: "path", alias: "p", type: VsPath, defaultValue: "vs2015.x86_32", description: "The full path to TF.exe or predefined values, defaults to vs2015.x86_32" },
+  { name: "path", alias: "p", type: VsPath, defaultValue: "vs2015", description: "The full path to TF.exe or predefined values, defaults to vs2015" },
   { name: "help", alias: "h", type: Boolean, description: "Display this help text" },
   { name: "ignore", alias: "i", type: Boolean, description: "Ignore the child process' exit status"},
   { name: "list", alias: "l", type: Boolean, description: "List pre-defined paths" }
 ]);
 
 var options = cli.parse();
+
+if (process.platform !== "win32") {
+  // must run on windows platform
+  process.exit(1);
+}
 
 if (options.help) {
   console.log(cli.getUsage({
